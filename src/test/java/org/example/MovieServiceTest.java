@@ -2,6 +2,7 @@ package org.example;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Stream;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -32,9 +33,9 @@ class MovieServiceTest {
     kgf3 = new BollywoodMovie("kgf3", directors, genres, 7.0);
     kgf1 = new BollywoodMovie("kgf1", directors, genres, 8.7);
     kgf2 = new BollywoodMovie("kgf2", directors, genres, 9.2);
-    dhamal = new HollywoodMovie("Dhamal", directors, List.of(comedyGenre), 9.1d);
+    dhamal = new BollywoodMovie("Dhamal", directors, List.of(comedyGenre), 9.1d);
 
-    movies = List.of(kgf1, kgf2, kgf3, dhamal);
+    movies = List.of(kgf1, kgf2, kgf3);
     movieService = new MovieService();
   }
 
@@ -71,7 +72,12 @@ class MovieServiceTest {
   @Test
   @DisplayName("Movies by genre")
   void getMoviesOfGenre() {
+    movies = Stream.concat(movies.stream(), List.of(dhamal).stream()).toList();
+
     List<Movie> actionMovies = movieService.getMoviesOfGenre(actionGenre, movies);
     Assertions.assertThat(actionMovies).containsAll(List.of(kgf1,kgf2,kgf3));
+
+    List<Movie> comedyMovies = movieService.getMoviesOfGenre(comedyGenre, movies);
+    Assertions.assertThat(comedyMovies).containsAll(List.of(dhamal));
   }
 }
