@@ -31,40 +31,18 @@ public abstract class Movie {
     return name;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
 
   public List<Director> getDirectors() {
     return directors;
   }
 
-  public void setDirectors(List<Director> directors) {
-    this.directors = directors;
-  }
 
   public List<Genre> getGenres() {
     return genres;
   }
 
-  public void setGenres(List<Genre> genres) {
-    this.genres = genres;
-  }
-
   public Double getRating() {
     return rating;
-  }
-
-  public void setRating(Double rating) {
-    this.rating = rating;
-  }
-
-  public void addDirector(Director d) {
-    this.directors.add(d);
-  }
-
-  public void addGenres(Genre g) {
-    this.genres.add(g);
   }
 
   @Override

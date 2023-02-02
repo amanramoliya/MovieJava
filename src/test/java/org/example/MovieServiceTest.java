@@ -13,21 +13,28 @@ class MovieServiceTest {
   List<Movie> movies;
   MovieService movieService;
   Genre actionGenre;
+  Genre comedyGenre;
 
   Movie kgf1;
   Movie kgf2;
   Movie kgf3;
+  Movie dhamal;
+  List<Director> directors;
+  List<Genre> genres;
 
 
   @BeforeEach
   void setUp() {
-    List<Director> directors = List.of(new Director("xyz"));
+    directors = List.of(new Director("xyz"));
     actionGenre = new Genre("Action");
-    List<Genre> genres = List.of(actionGenre);
+    comedyGenre = new Genre("Comedy");
+    genres = List.of(actionGenre);
     kgf3 = new BollywoodMovie("kgf3", directors, genres, 7.0);
     kgf1 = new BollywoodMovie("kgf1", directors, genres, 8.7);
     kgf2 = new BollywoodMovie("kgf2", directors, genres, 9.2);
-    movies = List.of(kgf1, kgf2, kgf3);
+    dhamal = new HollywoodMovie("Dhamal", directors, List.of(comedyGenre), 9.1d);
+
+    movies = List.of(kgf1, kgf2, kgf3, dhamal);
     movieService = new MovieService();
   }
 
@@ -59,5 +66,12 @@ class MovieServiceTest {
   void genreMovieCount() {
     Map<Genre, Long> genreCount = movieService.getGenreCount(movies);
     Assertions.assertThat(genreCount.get(actionGenre)).isEqualTo(3l);
+  }
+
+  @Test
+  @DisplayName("Movies by genre")
+  void getMoviesOfGenre() {
+    List<Movie> actionMovies = movieService.getMoviesOfGenre(actionGenre, movies);
+    Assertions.assertThat(actionMovies).containsAll(List.of(kgf1,kgf2,kgf3));
   }
 }

@@ -67,4 +67,11 @@ public class MovieService {
         .flatMap(List::stream)
         .collect(Collectors.groupingBy(genre -> genre, Collectors.counting()));
   }
+
+  public List<Movie> getMoviesOfGenre(Genre genre, List<Movie> movies) {
+    return movies
+        .stream()
+        .filter(movie -> movie.getGenres().contains(genre))
+        .toList();
+  }
 }
