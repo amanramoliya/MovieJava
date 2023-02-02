@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class MovieServiceTest {
 
@@ -51,7 +50,6 @@ class MovieServiceTest {
     @DisplayName("Movies Created By Director")
     void directorsMovieCount() {
         Map<String, Long> directorsmovie = movieService.getCount(movies);
-        System.out.println(directorsmovie);
         Assertions.assertThat(directorsmovie.get("xyz")).isEqualTo(3);
     }
 }
