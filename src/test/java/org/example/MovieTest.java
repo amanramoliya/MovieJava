@@ -14,8 +14,8 @@ class MovieTest {
   @Test
   @DisplayName("Check Origin of Movie")
   void getCountryOfOrigin() {
-    BollywoodMovie kgf = new BollywoodMovie("KGF", this.directors, this.genres, 9d);
-    HollywoodMovie missionImpossible = new HollywoodMovie("Mission Impossible", this.directors, this.genres, 8.9d);
+    Movie kgf = new BollywoodMovie("KGF", this.directors, this.genres, 9d);
+    Movie missionImpossible = new HollywoodMovie("Mission Impossible", this.directors, this.genres, 8.9d);
 
     Assertions.assertThat(kgf.getCountryOfOrigin().toLowerCase()).isEqualTo("india");
     Assertions.assertThat(missionImpossible.getCountryOfOrigin().toLowerCase()).isEqualTo("america");
