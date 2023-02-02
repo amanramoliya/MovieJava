@@ -15,6 +15,17 @@ public class Movie {
         this.rating = rating;
     }
 
+//    @Override
+//    public int compareTo(Movie o) {
+//        if(this.rating>o.rating){
+//            return 1;
+//        }
+//        else if(this.rating<o.rating){
+//            return -1;
+//        }
+//        return 0;
+//    }
+
     public String getName() {
         return name;
     }

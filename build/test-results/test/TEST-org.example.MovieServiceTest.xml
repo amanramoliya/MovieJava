@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.MovieServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-02-02T06:32:58" hostname="DESKTOP-HROPLLA" time="0.104">
+  <properties/>
+  <testcase name="Sort By Rating" classname="org.example.MovieServiceTest" time="0.104"/>
+  <system-out><![CDATA[[Movie{name='kgf1', directors=[Director{name='xyz'}], genres=[Genres{type='Action'}], rating=8.7}, Movie{name='kgf2', directors=[Director{name='xyz'}], genres=[Genres{type='Action'}], rating=9.2}, Movie{name='kgf3', directors=[Director{name='xyz'}], genres=[Genres{type='Action'}], rating=7.0}]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
