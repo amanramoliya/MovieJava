@@ -1,7 +1,12 @@
 package org.example;
 
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class MovieService {
 
@@ -32,4 +37,29 @@ public class MovieService {
     }
 
 
+    public Map<String, Long> getCount(List<Movie> movies) {
+
+        //  One way
+
+        Map<String, Long> count = new HashMap<String, Long>();
+        for (Movie currentMovie : movies) {
+            for (Director d : currentMovie.getDirectors()) {
+                if (count.containsKey(d.getName())) {
+                    count.replace(d.getName(), count.get(d.getName()) + 1);
+                } else {
+                    count.put(d.getName(), (long) 1);
+
+                }
+            }
+        }
+//        return count;
+
+
+//        Anoter Way Declarative way
+        return movies
+                .stream()
+                .map(movie -> movie.getDirectors())
+                .flatMap(List::stream)
+                .collect(Collectors.groupingBy(Director::getName, Collectors.counting()));
+    }
 }

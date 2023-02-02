@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -39,9 +40,18 @@ class MovieServiceTest {
     }
 
     @Test
+    @DisplayName("Sort By Name")
     void sortByName() {
         List<Movie> sortedMovies = movieService.sortByName(movies);
         List<Movie> expectedList = List.of(kgf1, kgf2, kgf3);
         Assertions.assertThat(sortedMovies).containsExactlyElementsOf(expectedList);
+    }
+
+    @Test
+    @DisplayName("Movies Created By Director")
+    void directorsMovieCount() {
+        Map<String, Long> directorsmovie = movieService.getCount(movies);
+        System.out.println(directorsmovie);
+        Assertions.assertThat(directorsmovie.get("xyz")).isEqualTo(3);
     }
 }
