@@ -1,5 +1,6 @@
 package org.example;
 
+import java.io.IOException;
 import java.util.List;
 
 public abstract class Movie {
@@ -78,5 +79,17 @@ public abstract class Movie {
   }
 
   public abstract String getCountryOfOrigin();
+
+  public void watchTrailer()  {
+    try {
+      this.getTrailer();
+    }catch (TrailerNotFoundException trailerError){
+      System.out.println(trailerError.getMessage());
+    }
+  }
+
+  private void getTrailer() throws TrailerNotFoundException {
+    throw new TrailerNotFoundException(this.name + " Trailer not found!");
+  }
 
 }
