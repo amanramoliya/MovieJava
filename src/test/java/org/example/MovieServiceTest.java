@@ -24,9 +24,9 @@ class MovieServiceTest {
     List<Director> directors = List.of(new Director("xyz"));
     actionGenre = new Genre("Action");
     List<Genre> genres = List.of(actionGenre);
-    kgf3 = new Movie("kgf3", directors, genres, 7.0);
-    kgf1 = new Movie("kgf1", directors, genres, 8.7);
-    kgf2 = new Movie("kgf2", directors, genres, 9.2);
+    kgf3 = new BollywoodMovie("kgf3", directors, genres, 7.0);
+    kgf1 = new BollywoodMovie("kgf1", directors, genres, 8.7);
+    kgf2 = new BollywoodMovie("kgf2", directors, genres, 9.2);
     movies = List.of(kgf1, kgf2, kgf3);
     movieService = new MovieService();
   }

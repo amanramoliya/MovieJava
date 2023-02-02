@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.List;
 
-public class Movie {
+public abstract class Movie {
 
   private String name;
   private List<Director> directors;
@@ -76,4 +76,7 @@ public class Movie {
            ", rating=" + rating +
            '}';
   }
+
+  public abstract String getCountryOfOrigin();
+
 }

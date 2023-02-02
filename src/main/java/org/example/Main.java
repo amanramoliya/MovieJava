@@ -14,7 +14,7 @@ public class Main {
 
     List<Genre> genres = new ArrayList<>();
     genres.add(new Genre("comedy"));
-    Movie dhamal = new Movie("movie1", directors, genres, 9.3);
+    Movie dhamal = new BollywoodMovie("movie1", directors, genres, 9.3);
 
     System.out.println(dhamal);
   }
