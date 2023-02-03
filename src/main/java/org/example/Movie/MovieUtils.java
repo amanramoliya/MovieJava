@@ -1,11 +1,11 @@
-package org.example;
+package org.example.Movie;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class MovieService {
+public class MovieUtils {
 
   public List<Movie> sortByRating(List<Movie> movies) {
 //        Comparator<Movie> ratingComparator = new Comparator<Movie>() {

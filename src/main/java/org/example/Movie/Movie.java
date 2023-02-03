@@ -1,19 +1,23 @@
-package org.example;
+package org.example.Movie;
 
 import java.util.List;
 
 public abstract class Movie {
 
+  private Long id;
   private String name;
   private List<Director> directors;
   private List<Genre> genres;
   private Double rating;
+  private final int trailerId;
 
-  public Movie(String name, List<Director> directors, List<Genre> genres, Double rating) {
+  public Movie(Long id, String name, List<Director> directors, List<Genre> genres, Double rating, int trailerId) {
     this.name = name;
+    this.id=id;
     this.directors = directors;
     this.genres = genres;
     this.rating = rating;
+    this.trailerId = trailerId;
   }
 
 //    @Override
@@ -57,12 +61,6 @@ public abstract class Movie {
 
   public abstract String getCountryOfOrigin();
 
-  public void watchTrailer() throws TrailerNotFoundException {
-    this.getTrailer();
-  }
 
-  private void getTrailer() throws TrailerNotFoundException {
-    throw new TrailerNotFoundException(this.name + " Trailer not found!");
-  }
 
 }

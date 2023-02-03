@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id "jacoco"
+    id 'jacoco'
 }
 
 group 'org.example'
@@ -11,6 +11,7 @@ repositories {
 }
 
 dependencies {
+    testImplementation 'org.mockito:mockito-testng:0.4.30'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
     // https://mvnrepository.com/artifact/org.assertj/assertj-core
@@ -20,12 +21,11 @@ dependencies {
 
 test {
     useJUnitPlatform()
-    finalizedBy jacocoTestReport
 }
 
-jacocoTestReport {
+jacocoTestReport{
     dependsOn test
-    reports {
-        xml.required = true
+    reports{
+        xml.required=true
     }
 }
